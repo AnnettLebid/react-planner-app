@@ -1,35 +1,37 @@
 import React from "react";
-import { Container } from "@material-ui/core";
+import Header from "./components/Header/Header";
 import ToDoForm from "./components/ToDoForm/ToDoForm";
 import ToDoList from "./components/ToDoList/ToDoList";
+import DoneList from "./components/DoneList/DoneList";
 import "./App.css";
 
 export default class TodoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos:[]
+      todos: [],
+      doneTodos: [],
     };
   }
 
-  handleOnNewTodo(newTodo) {
+  handleOnNewTodo(newTodoText) {
     this.setState((state) => {
       return {
-        todos: [newTodo, ...state.todos]
-      }
-    })
-  };
+        todos: [newTodoText, ...state.todos],
+      };
+    });
+  }
 
-  render() {    
+  render() {
     return (
-      <div className="App">
-        <Container maxWidth="sm">
-          <h1>Todo App</h1>
-        <ToDoForm  onNewTodo={(newTodo) => this.handleOnNewTodo(newTodo)}/>
-        <ToDoList todos={this.state.todos} /> 
-        </Container>
+      <div className="container">
+        <div className="app-wrapper">
+          <Header />
+          <ToDoForm onNewTodo={(newTodoText) => this.handleOnNewTodo(newTodoText)} />
+          <ToDoList todos={this.state.todos} />
+          <DoneList doneTodos = {this.state.todos}/>
+        </div>
       </div>
     );
   }
 }
-

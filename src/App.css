@@ -1,39 +1,146 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Slab:300,400,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 body {
   min-height: 100vh;
   width: 100%;
-  font-family: 'PT Sans', sans-serif;
-  color: hsl(227, 15%, 36%);
+  font-family: "PT Sans", sans-serif;
   font-family: fantasy;
-
+  color: white;
+  background: #388087;
+  font-family: "Josefin Slab", serif;
 }
 
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.App {
+.app-wrapper {
+  background-color: #292f38;
+  width: 25%;
+  min-width: 450px;
+  /* height: 500px; */
+  padding: 30px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  margin-top: 20px;
+}
+
+.header h1 {
+  color: #6fb3b8;
+  font-weight: 800;
   text-align: center;
-  /* background-color:#5695D2; */
+  margin: 10px 20px 60px 20px;
+  font-family: "Josefin Slab", serif;
 }
 
+.task-input {
+  width: 100%;
+  min-width: 250px;
+  padding: 15px 10px 10px 20px;
+  /* font-family: "Josefin Sans", serif; */
+  font-size: 15px;
+  color: #ccc;
+  background-color: #1d222b;
+  border: 1px solid #444;
+  outline: none;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
 
-.Main-container {
-  /* max-width: "sm"; */
-  padding-top: 200px;
-  background: 
-  radial-gradient(
-    circle at bottom right,
-    hsla(285, 31%, 61%, 0.6), 
-    hsla(285, 31%, 61%, 0.6) 30%,
-    transparent 30%
-    ), 
-  linear-gradient(
-    to top right, 
-    hsla(347, 20%, 91%, 0.8), 
-    hsla(279, 21%, 79%, 0.8) 50%, 
-    hsla(245, 33%, 53%, 0.8) 50%, 
-    hsla(245, 36%, 55%, 0.8)
-    );
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  margin: 10px;
+}
+
+.add-task-btn {
+  min-width: 100px;
+  background-color: #388087;
+  color: #ccc;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  outline: none;
+  cursor: pointer;
+}
+
+.task-btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.btn-delete i {
+  font-size: 16px;
+  color: #bbb;
+  margin-right: 20px;
+}
+
+.clear-btn {
+  width: 100px;
+  height: 35px;
+  background-color: #388087;
+  color: #ccc;
+  border: none;
+  /* font-family: "Montserrat", sans-serif; */
+  font-size: 14px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  outline: none;
+  cursor: pointer;
+}
+
+.add-task-btn:hover,
+.clear-btn:hover {
+  background-color: #46959c;
+  color: #ccc;
+  color: white;
+}
+
+.list {
+  width: 90%; 
+  margin: auto;
+  max-height: 300px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.sub-header {
+  color: #6fb3b8;
+  font-weight: 800;
+  font-size:20px;
+  text-align: center;
+  margin: 20px; 
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding-bottom: 5px;
+  list-style-type:none;
+  font-size:25px;
+}
+
+.todolist {
+  height: 50%
 }
