@@ -1,16 +1,18 @@
-import React from 'react'
+import React from "react";
 
-// const ToDoList = (props) => {
-//     const todos = props.todos
-//     return (
-//         <ul>
-//             {todos.map((todo, index) =>
-//             <li key = {`todo.date_${index}`}>
-//                 {todo}
-//                 </li>
-//             )}            
-//         </ul>
-//     )
-// }
+function ToDoList(props) {
+  
+  return (
+    <ul>
+      {props.todos.map((todo, index) =>
+        <li key={index}>
+          {todo.newTodo}
+        </li>
+      )}
+    </ul>
+  )
+}
 
-// export default ToDoList
+
+export default ToDoList;
+
