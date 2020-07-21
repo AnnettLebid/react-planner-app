@@ -4,29 +4,26 @@ export default class TodoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todo: "",
+      newTodo: '',      
     };
-  }
-
-  handleChange(event) {
-    this.setState({ todo: event.target.value });
-  }
+  }  
 
   handleOnSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
+    console.log(this.state);   
+    this.props.onNewTodo(this.state); 
   }
 
-  render() {
+  render() {   
     return (
       <form onSubmit={(event) => this.handleOnSubmit(event)}>
         <label>
           <input
             type="text"
-            value={this.state.value}
-            onChange={(event) => this.handleChange(event)}
+            value={this.state.newTodo}
+            onChange={(event) => this.setState({newTodo: event.target.value})}
           />
-        </label>
+        </label>     
         <input type="submit" value="Submit" />
       </form>
     );
