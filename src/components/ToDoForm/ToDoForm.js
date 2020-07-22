@@ -13,7 +13,7 @@ export default class TodoForm extends React.Component {
   }
 
   handleOnSubmit(event) {
-    event.preventDefault();
+    event.preventDefault(); 
     this.props.onNewTodo(this.state);
   }
 
@@ -34,8 +34,7 @@ export default class TodoForm extends React.Component {
             </button>
             <button className="btn clear-btn">Clear</button>
           </div>
-        </form>
-        <div className="sub-header">To Do</div>
+        </form>        
       </div>
     );
   }

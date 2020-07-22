@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./components/Header/Header";
+import Subheader from "./components/Subheader/Subheader";
 import ToDoForm from "./components/ToDoForm/ToDoForm";
 import ToDoList from "./components/ToDoList/ToDoList";
 import DoneList from "./components/DoneList/DoneList";
@@ -22,14 +23,28 @@ export default class TodoForm extends React.Component {
     });
   }
 
+  // moveItem(index){
+  //   this.setState((state) => {
+  //     return {
+  //       todos: [newTodoText, ...state.todos],
+  //     };
+  //   });
+  // }
+
+  handleToggle(index){
+    console.log(index)
+  }
+
   render() {
     return (
       <div className="container">
         <div className="app-wrapper">
-          <Header />
+          <Header name = "Todo App"/>
           <ToDoForm onNewTodo={(newTodoText) => this.handleOnNewTodo(newTodoText)} />
-          <ToDoList todos={this.state.todos} />
-          <DoneList doneTodos = {this.state.todos}/>
+          <Subheader name = "To do"/>
+          <ToDoList todos={this.state.todos} handleToggle = {this.handleToggle}/>
+          <Subheader name = "Done"/>
+          {/* <DoneList doneTodos = {this.state.doneTodos}/> */}
         </div>
       </div>
     );

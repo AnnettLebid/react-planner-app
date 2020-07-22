@@ -74,8 +74,8 @@ body {
   background-color: #388087;
   color: #ccc;
   border: none;
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
+  
+  font-size: 16px;
   border-radius: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   outline: none;
@@ -89,6 +89,12 @@ body {
   outline: none;
 }
 
+.btn-edit i {
+  font-size: 16px;
+  color: #bbb;
+  margin-right: 20px;
+}
+
 .btn-delete i {
   font-size: 16px;
   color: #bbb;
@@ -100,9 +106,8 @@ body {
   height: 35px;
   background-color: #388087;
   color: #ccc;
-  border: none;
-  /* font-family: "Montserrat", sans-serif; */
-  font-size: 14px;
+  border: none; 
+  font-size: 16px;
   border-radius: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   outline: none;
@@ -124,10 +129,9 @@ body {
   overflow-y: auto;
 }
 
-.sub-header {
+.sub-header h4{
   color: #6fb3b8;
-  font-weight: 800;
-  font-size:20px;
+  font-weight: 800; 
   text-align: center;
   margin: 20px; 
 }
