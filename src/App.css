@@ -74,7 +74,7 @@ body {
   background-color: #388087;
   color: #ccc;
   border: none;
-  
+
   font-size: 16px;
   border-radius: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -95,6 +95,11 @@ body {
   margin-right: 20px;
 }
 
+.btn-delete:focus,
+.btn-edit:focus {
+  outline: none;
+}
+
 .btn-delete i {
   font-size: 16px;
   color: #bbb;
@@ -106,7 +111,7 @@ body {
   height: 35px;
   background-color: #388087;
   color: #ccc;
-  border: none; 
+  border: none;
   font-size: 16px;
   border-radius: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -122,18 +127,18 @@ body {
 }
 
 .list {
-  width: 90%; 
+  width: 90%;
   margin: auto;
   max-height: 300px;
   overflow: hidden;
   overflow-y: auto;
 }
 
-.sub-header h4{
+.sub-header h4 {
   color: #6fb3b8;
-  font-weight: 800; 
+  font-weight: 800;
   text-align: center;
-  margin: 20px; 
+  margin: 20px;
 }
 
 .list-item {
@@ -141,8 +146,8 @@ body {
   justify-content: space-between;
   margin: 20px 0;
   padding-bottom: 5px;
-  list-style-type:none;
-  font-size:25px;
+  list-style-type: none;
+  font-size: 25px;
 }
 
 .todolist {

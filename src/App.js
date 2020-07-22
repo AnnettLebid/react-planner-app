@@ -13,12 +13,13 @@ export default class TodoForm extends React.Component {
       todos: [],
       doneTodos: [],
     };
+    this. handleToggleMove = this. handleToggleMove.bind(this);
   }
 
-  handleOnNewTodo(newTodoText) {
+  handleOnNewTodo(newTodo) {
     this.setState((state) => {
       return {
-        todos: [newTodoText, ...state.todos],
+        todos: [newTodo, ...state.todos],
       };
     });
   }
@@ -31,19 +32,26 @@ export default class TodoForm extends React.Component {
   //   });
   // }
 
-  handleToggle(index){
-    console.log(index)
+  handleToggleMove(index) {
+    console.log(index);
+    this.setState((state) => {
+      console.log(this.state.todos);
+    //   const todos = state.todos.filter((index, 1))
+    //   return todos
+    });
   }
 
   render() {
     return (
       <div className="container">
         <div className="app-wrapper">
-          <Header name = "Todo App"/>
-          <ToDoForm onNewTodo={(newTodoText) => this.handleOnNewTodo(newTodoText)} />
-          <Subheader name = "To do"/>
-          <ToDoList todos={this.state.todos} handleToggle = {this.handleToggle}/>
-          <Subheader name = "Done"/>
+          <Header name="Todo App" />
+          <ToDoForm
+            onNewTodo={(newTodo) => this.handleOnNewTodo(newTodo)}
+          />
+          <Subheader name="To do" />
+          <ToDoList todos={this.state.todos} handleToggleMove={this.handleToggleMove} />
+          <Subheader name="Done" />
           {/* <DoneList doneTodos = {this.state.doneTodos}/> */}
         </div>
       </div>
