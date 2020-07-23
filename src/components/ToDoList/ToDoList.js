@@ -4,9 +4,9 @@ import React from "react";
 function ToDoList(props) {
   const { todos } = props;
 
-  function handleOnDelete(index) {
-    console.log(index)
-    props.handleOnDelete(index);
+  function handleOnDelete(todo) {
+    console.log(todo);
+    props.handleOnDelete(todo);
   }
 
   function handleToggleMove(todo, index) {
@@ -27,12 +27,12 @@ function ToDoList(props) {
             </button>
             <button
               className="btn-delete task-btn"
-              onClick={() => {handleOnDelete(todo.id)}}
+              onClick={() => {
+                handleOnDelete(todo);
+              }}
             >
               <i className="fas fa-trash-alt"></i>
             </button>
-            {/* <button className="btn-edit task-btn" onClick ={() => console.log(index)}> */}
-
             <button
               className="btn-edit task-btn"
               onClick={() => handleToggleMove(todo)}

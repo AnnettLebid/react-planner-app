@@ -21,7 +21,7 @@ function DoneList(props) {
             </button>
             <button
               className="btn-edit task-btn"
-              //   onClick={() => handleToggle(todo)}
+              //   onClick={() => handleToggleEdit(todo)}
             >
               <i className="fa fa-check-square" aria-hidden="true"></i>
             </button>

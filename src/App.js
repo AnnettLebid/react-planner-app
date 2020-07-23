@@ -14,9 +14,10 @@ export default class TodoForm extends React.Component {
       doneTodos: [],
     };
     this.handleToggleMove = this.handleToggleMove.bind(this);
+    this.handleOnDelete = this.handleOnDelete.bind(this);
   }
 
-  handleOnNewTodo(newTodo) {    
+  handleOnNewTodo(newTodo) {
     this.setState((state) => {
       return {
         todos: [newTodo, ...state.todos],
@@ -24,14 +25,27 @@ export default class TodoForm extends React.Component {
     });
   }
 
-  handleToggleMove(todo, index) {
+  handleToggleMove(todo) {
+    const index = todo.id
+    console.log(index)
     console.log(todo);
     this.setState((state) => {
+      const todos = state.todos.filter((todo) => todo.id !== index);
       return {
         doneTodos: [todo, ...state.doneTodos],
+        todos,
       };
-    });
-    
+    }); 
+  }
+
+  handleOnDelete(todo) {
+    console.log(todo);
+    // this.setState((state) => {
+    //   return {
+    //     todos: [newTodo, ...state.todos],
+    //   };
+    // });
+
     // const doneTodo = todos.splice(index, 1)
     // console.log(doneTodo.index)
     // this.setState((state) => {
@@ -40,20 +54,25 @@ export default class TodoForm extends React.Component {
     //   const todos = state.todos.filter((index, 1))
     //   return todos
   }
-  
+
+  onClearArray = () => {
+    this.setState({ todos: [], doneTodos: [] });
+  };
 
   render() {
     return (
       <div className="container">
         <div className="app-wrapper">
           <Header name="Todo App" />
-          <ToDoForm
-            onNewTodo={(newTodo) => this.handleOnNewTodo(newTodo)}
-          />
+          <ToDoForm onNewTodo={(newTodo) => this.handleOnNewTodo(newTodo)} />
           <Subheader name="To do" />
-          <ToDoList todos={this.state.todos} handleToggleMove={this.handleToggleMove} />
+          <ToDoList
+            todos={this.state.todos}
+            handleToggleMove={this.handleToggleMove}
+            handleOnDelete={this.handleOnDelete}
+          />
           <Subheader name="Done" />
-          <DoneList doneTodos = {this.state.doneTodos}/>
+          <DoneList doneTodos={this.state.doneTodos} />
         </div>
       </div>
     );
