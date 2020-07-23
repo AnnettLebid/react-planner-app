@@ -4,13 +4,12 @@ import React from "react";
 function ToDoList(props) {
   const { todos } = props;
 
-  function handleOnDelete(todo) {
-    console.log(todo);
+  function handleOnDelete(todo) {  
     props.handleOnDelete(todo);
   }
 
-  function handleToggleMove(todo, index) {
-    props.handleToggleMove(todo, index);
+  function moveToDoneList(todo, index) {
+    props.moveToDoneList(todo, index);
   }
 
   return (
@@ -35,7 +34,7 @@ function ToDoList(props) {
             </button>
             <button
               className="btn-edit task-btn"
-              onClick={() => handleToggleMove(todo)}
+              onClick={() => moveToDoneList(todo)}
             >
               <i className="fa fa-check-square" aria-hidden="true"></i>
             </button>

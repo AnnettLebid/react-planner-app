@@ -10,10 +10,12 @@ export default class TodoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: false,
       todos: [],
       doneTodos: [],
     };
-    this.handleToggleMove = this.handleToggleMove.bind(this);
+    this.moveToDoneList = this.moveToDoneList.bind(this);
+    this.moveToTodoList = this.moveToTodoList.bind(this);
     this.handleOnDelete = this.handleOnDelete.bind(this);
   }
 
@@ -25,39 +27,37 @@ export default class TodoForm extends React.Component {
     });
   }
 
-  handleToggleMove(todo) {
-    const index = todo.id
-    console.log(index)
-    console.log(todo);
+  moveToDoneList(todo) {
+    const index = todo.id;
     this.setState((state) => {
       const todos = state.todos.filter((todo) => todo.id !== index);
       return {
         doneTodos: [todo, ...state.doneTodos],
         todos,
       };
-    }); 
+    });
+  }
+
+  moveToTodoList(todo) {
+    const index = todo.id;
+    this.setState((state) => {
+      const doneTodos = state.doneTodos.filter((todo) => todo.id !== index);
+      return {
+        todos: [todo, ...state.todos],
+        doneTodos,
+      };
+    });
   }
 
   handleOnDelete(todo) {
-    console.log(todo);
-    // this.setState((state) => {
-    //   return {
-    //     todos: [newTodo, ...state.todos],
-    //   };
-    // });
-
-    // const doneTodo = todos.splice(index, 1)
-    // console.log(doneTodo.index)
-    // this.setState((state) => {
-    // doneTodos([doneTodo[0], ... doneTodos])
-    //   console.log(this.state.todos);
-    //   const todos = state.todos.filter((index, 1))
-    //   return todos
+    const index = todo.id;
+    this.setState((state) => {
+      const todos = state.todos.filter((todo) => todo.id !== index);
+      return {
+        todos,
+      };
+    });
   }
-
-  onClearArray = () => {
-    this.setState({ todos: [], doneTodos: [] });
-  };
 
   render() {
     return (
@@ -68,11 +68,14 @@ export default class TodoForm extends React.Component {
           <Subheader name="To do" />
           <ToDoList
             todos={this.state.todos}
-            handleToggleMove={this.handleToggleMove}
+            moveToDoneList={this.moveToDoneList}
             handleOnDelete={this.handleOnDelete}
           />
           <Subheader name="Done" />
-          <DoneList doneTodos={this.state.doneTodos} />
+          <DoneList
+            doneTodos={this.state.doneTodos}
+            moveToTodoList={this.moveToTodoList}
+          />
         </div>
       </div>
     );
