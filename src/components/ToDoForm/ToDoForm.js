@@ -5,12 +5,12 @@ export default class TodoForm extends React.Component {
     super(props);
     this.state = {    
       newTodoText: "",
-      id: Date.now(),
+      id: new Date (),
     };
   }
 
   handleChange(event) {
-    this.setState({ newTodoText: event.target.value });
+    this.setState({ newTodoText: event.target.value });    
   }
 
   handleOnSubmit(event) {

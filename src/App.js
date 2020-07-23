@@ -13,7 +13,7 @@ export default class TodoForm extends React.Component {
       todos: [],
       doneTodos: [],
     };
-    this. handleToggleMove = this. handleToggleMove.bind(this);
+    this.handleToggleMove = this.handleToggleMove.bind(this);
   }
 
   handleOnNewTodo(newTodo) {
@@ -24,22 +24,17 @@ export default class TodoForm extends React.Component {
     });
   }
 
-  // moveItem(index){
-  //   this.setState((state) => {
-  //     return {
-  //       todos: [newTodoText, ...state.todos],
-  //     };
-  //   });
-  // }
-
   handleToggleMove(index) {
     console.log(index);
-    this.setState((state) => {
-      console.log(this.state.todos);
+    // const doneTodo = todos.splice(index, 1)
+    // console.log(doneTodo)
+    // this.setState((state) => {
+    //   doneTodos([doneTodo[0], ... doneTodos])
+    //   console.log(this.state.todos);
     //   const todos = state.todos.filter((index, 1))
     //   return todos
-    });
   }
+  
 
   render() {
     return (
