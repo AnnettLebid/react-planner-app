@@ -3,19 +3,27 @@ import React from "react";
 export default class TodoForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {    
-      newTodoText: "",
-      id: new Date (),
+    this.state = {
+      newTodo: {
+        newTodoText: "",
+        id: "",
+      },
     };
   }
 
   handleChange(event) {
-    this.setState({ newTodoText: event.target.value });    
+    this.setState({ newTodoText: event.target.value });
   }
 
   handleOnSubmit(event) {
-    event.preventDefault(); 
-    this.props.onNewTodo(this.state);
+    event.preventDefault();
+    if (this.state.newTodoText.length === 0) {
+      return;
+    }
+    this.props.onNewTodo({
+      newTodoText: this.state.newTodoText,
+      id: Date.now(),
+    });
   }
 
   render() {
@@ -35,7 +43,7 @@ export default class TodoForm extends React.Component {
             </button>
             <button className="btn clear-btn">Clear</button>
           </div>
-        </form>        
+        </form>
       </div>
     );
   }

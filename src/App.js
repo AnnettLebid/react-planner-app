@@ -17,6 +17,7 @@ export default class TodoForm extends React.Component {
   }
 
   handleOnNewTodo(newTodo) {
+    
     this.setState((state) => {
       return {
         todos: [newTodo, ...state.todos],
