@@ -16,8 +16,7 @@ export default class TodoForm extends React.Component {
     this.handleToggleMove = this.handleToggleMove.bind(this);
   }
 
-  handleOnNewTodo(newTodo) {
-    
+  handleOnNewTodo(newTodo) {    
     this.setState((state) => {
       return {
         todos: [newTodo, ...state.todos],
@@ -25,12 +24,18 @@ export default class TodoForm extends React.Component {
     });
   }
 
-  handleToggleMove(index) {
-    console.log(index);
+  handleToggleMove(todo, index) {
+    console.log(todo);
+    this.setState((state) => {
+      return {
+        doneTodos: [todo, ...state.doneTodos],
+      };
+    });
+    
     // const doneTodo = todos.splice(index, 1)
-    // console.log(doneTodo)
+    // console.log(doneTodo.index)
     // this.setState((state) => {
-    //   doneTodos([doneTodo[0], ... doneTodos])
+    // doneTodos([doneTodo[0], ... doneTodos])
     //   console.log(this.state.todos);
     //   const todos = state.todos.filter((index, 1))
     //   return todos
@@ -48,7 +53,7 @@ export default class TodoForm extends React.Component {
           <Subheader name="To do" />
           <ToDoList todos={this.state.todos} handleToggleMove={this.handleToggleMove} />
           <Subheader name="Done" />
-          {/* <DoneList doneTodos = {this.state.doneTodos}/> */}
+          <DoneList doneTodos = {this.state.doneTodos}/>
         </div>
       </div>
     );

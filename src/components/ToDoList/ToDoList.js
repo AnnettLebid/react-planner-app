@@ -9,8 +9,8 @@ function ToDoList(props) {
     props.handleOnDelete(index);
   }
 
-  function handleToggleMove(index) {
-    props.handleToggleMove(index);
+  function handleToggleMove(todo, index) {
+    props.handleToggleMove(todo, index);
   }
 
   return (
@@ -35,7 +35,7 @@ function ToDoList(props) {
 
             <button
               className="btn-edit task-btn"
-              onClick={() => handleToggleMove(todo.id)}
+              onClick={() => handleToggleMove(todo)}
             >
               <i className="fa fa-check-square" aria-hidden="true"></i>
             </button>
