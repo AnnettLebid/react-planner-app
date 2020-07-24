@@ -4,7 +4,8 @@ import React from "react";
 function ToDoList(props) {
   const { todos } = props;
 
-  function handleOnDelete(todo) {  
+  function handleOnDelete(todo) {
+  
     props.handleOnDelete(todo);
   }
 

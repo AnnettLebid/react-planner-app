@@ -45,7 +45,7 @@ export default class TodoForm extends React.Component {
       return {
         todos: [todo, ...state.todos],
         doneTodos,
-      };
+      };git 
     });
   }
 
@@ -60,6 +60,10 @@ export default class TodoForm extends React.Component {
   }
 
   render() {
+
+    // const doneLIst = this.state.todos.filter(... )
+    // const todoLIst = this.state.todos.filter(... )
+
     return (
       <div className="container">
         <div className="app-wrapper">

@@ -7,6 +7,9 @@ export default class TodoForm extends React.Component {
       newTodo: {
         newTodoText: "",
         id: "",
+        finished: false,
+        favourite: false,
+        editing: false,
       },
     };
   }
@@ -23,6 +26,9 @@ export default class TodoForm extends React.Component {
     this.props.onNewTodo({
       newTodoText: this.state.newTodoText,
       id: Date.now(),
+      // finished: false,
+      // favourite: false,
+      // editing: false,
     });
   }
 
