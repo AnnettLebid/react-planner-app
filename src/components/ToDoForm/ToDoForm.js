@@ -5,7 +5,7 @@ export default class TodoForm extends React.Component {
     super(props);
     this.state = {
       newTodo: {
-        newTodoText: "",
+        text: "",
         id: "",
         finished: false,
         favourite: false,
@@ -15,21 +15,22 @@ export default class TodoForm extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ newTodoText: event.target.value });
+    this.setState({ text: event.target.value });
   }
 
   handleOnSubmit(event) {
     event.preventDefault();
-    if (this.state.newTodoText.length === 0) {
+    if (this.state.text.length === 0) {
       return;
     }
     this.props.onNewTodo({
-      newTodoText: this.state.newTodoText,
+      text: this.state.text,
       id: Date.now(),
-      // finished: false,
-      // favourite: false,
-      // editing: false,
+      isDone: false,
+      favourite: false,
+      isEditing: false,
     });
+    document.getElementById("todoInput").value = "";
   }
 
   render() {
@@ -42,10 +43,11 @@ export default class TodoForm extends React.Component {
             value={this.state.value}
             onChange={(event) => this.handleChange(event)}
             className="task-input"
+            id="todoInput"
           />
           <div className="buttons">
             <button type="submit" className="btn add-task-btn">
-              Add
+              Add 
             </button>
             <button className="btn clear-btn">Clear</button>
           </div>

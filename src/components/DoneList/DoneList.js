@@ -3,15 +3,19 @@ import React from "react";
 function DoneList(props) {
   const { doneTodos } = props;
 
-  function moveToTodoList(todo, index) {
-    props.moveToTodoList(todo, index);
+  // function moveToTodoList(todo, index) {
+  //   props.moveToTodoList(todo, index);
+  // }
+
+  function toggleDone(todo) {
+    props.toggleDone(todo);
   }
-  
+
   return (
     <ul className="list">
       {doneTodos.map((todo) => (
         <li key={todo.id} className="list-item">
-          {todo.newTodoText}
+          {todo.text}
           <div>
             <button className="btn-edit task-btn">
               <i className="far fa-heart"></i>
@@ -24,7 +28,7 @@ function DoneList(props) {
             </button>
             <button
               className="btn-edit task-btn"
-              onClick={() => moveToTodoList(todo)}
+              onClick={() => toggleDone(todo)}
             >
               <i className="fa fa-check-square" aria-hidden="true"></i>
             </button>

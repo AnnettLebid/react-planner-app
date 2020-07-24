@@ -9,14 +9,12 @@ import "./App.css";
 export default class TodoForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isLoading: false,
+    this.state = {     
       todos: [],
-      doneTodos: [],
     };
-    this.moveToDoneList = this.moveToDoneList.bind(this);
-    this.moveToTodoList = this.moveToTodoList.bind(this);
-    this.handleOnDelete = this.handleOnDelete.bind(this);
+    this.toggleDone = this.toggleDone.bind(this);
+    this.toggleFavourite = this.toggleFavourite.bind(this);    
+    this.handleOnDelete = this.handleOnDelete.bind(this);   
   }
 
   handleOnNewTodo(newTodo) {
@@ -24,29 +22,7 @@ export default class TodoForm extends React.Component {
       return {
         todos: [newTodo, ...state.todos],
       };
-    });
-  }
-
-  moveToDoneList(todo) {
-    const index = todo.id;
-    this.setState((state) => {
-      const todos = state.todos.filter((todo) => todo.id !== index);
-      return {
-        doneTodos: [todo, ...state.doneTodos],
-        todos,
-      };
-    });
-  }
-
-  moveToTodoList(todo) {
-    const index = todo.id;
-    this.setState((state) => {
-      const doneTodos = state.doneTodos.filter((todo) => todo.id !== index);
-      return {
-        todos: [todo, ...state.todos],
-        doneTodos,
-      };git 
-    });
+    });   
   }
 
   handleOnDelete(todo) {
@@ -59,10 +35,36 @@ export default class TodoForm extends React.Component {
     });
   }
 
-  render() {
+  // handleDoneButtonClick() {
+  //   this.setState({isDone: true});
+  // }
+ 
+  toggleDone(todo){
+    const index = todo.id
+    const todos = this.state.todos.map(todo => {
+      if (todo.id === index) {
+        todo.isDone = !todo.isDone
+      }     
+      return todo
+    });
+    this.setState({todos, todo: ''})    
+  }
 
-    // const doneLIst = this.state.todos.filter(... )
-    // const todoLIst = this.state.todos.filter(... )
+  toggleFavourite(todo){
+    const index = todo.id
+    const todos = this.state.todos.map(todo => {
+      if (todo.id === index) {
+        todo.favourite = !todo.favourite
+      }     
+      return todo
+    });
+    this.setState({todos, todo: ''})    
+  }
+
+  render() {
+    console.log(this.state.todos)
+    const doneList = this.state.todos.filter((todo) => todo.isDone);
+    const todoList = this.state.todos.filter((todo) => !todo.isDone);
 
     return (
       <div className="container">
@@ -71,14 +73,15 @@ export default class TodoForm extends React.Component {
           <ToDoForm onNewTodo={(newTodo) => this.handleOnNewTodo(newTodo)} />
           <Subheader name="To do" />
           <ToDoList
-            todos={this.state.todos}
-            moveToDoneList={this.moveToDoneList}
+            todos={todoList}
+            toggleDone={this.toggleDone}
             handleOnDelete={this.handleOnDelete}
+            toggleFavourite={this.toggleFavourite}
           />
           <Subheader name="Done" />
           <DoneList
-            doneTodos={this.state.doneTodos}
-            moveToTodoList={this.moveToTodoList}
+            doneTodos={doneList}
+            toggleDone={this.toggleDone}          
           />
         </div>
       </div>
