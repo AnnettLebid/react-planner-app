@@ -53,8 +53,7 @@ export default class TodoForm extends React.Component {
           <div className="buttons">
             <button type="submit" className="btn add-task-btn">
               Add
-            </button>
-           
+            </button>           
             {todosLength > 0 && (
               <ResetButton
                 onButtonClear={(event) => this.onButtonClear(event)}

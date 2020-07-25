@@ -76,8 +76,7 @@ export default class App extends React.Component {
       }
       return todo;
     });
-    this.setState({ todos, todo: "" });
-    console.log(selectedTodo); 
+    this.setState({ todos, todo: "" });    
   }
 
   handleChange(event){
