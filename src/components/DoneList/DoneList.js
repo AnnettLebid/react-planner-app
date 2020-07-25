@@ -7,6 +7,10 @@ function DoneList(props) {
   //   props.moveToTodoList(todo, index);
   // }
 
+  function handleOnDelete(todo) {
+    props.handleOnDelete(todo);
+  }
+
   function toggleDone(todo) {
     props.toggleDone(todo);
   }
@@ -23,7 +27,12 @@ function DoneList(props) {
             <button className="btn-edit task-btn">
               <i className="fa fa-pencil-square-o"></i>
             </button>
-            <button className="btn-delete task-btn">
+            <button
+              className="btn-delete task-btn"
+              onClick={() => {
+                handleOnDelete(todo);
+              }}
+            >
               <i className="fas fa-trash-alt"></i>
             </button>
             <button

@@ -1,4 +1,5 @@
 import React from "react";
+import ResetButton from "../ResetButton/ResetButton";
 
 export default class TodoForm extends React.Component {
   constructor(props) {
@@ -33,10 +34,15 @@ export default class TodoForm extends React.Component {
     document.getElementById("todoInput").value = "";
   }
 
+  onButtonClear() {
+    this.props.onButtonClear();
+  }
+
   render() {
     return (
       <div>
         <form onSubmit={(event) => this.handleOnSubmit(event)} className="form">
+          <p>{this.props.todosLength}</p>
           <input
             label="What are you planning to do?"
             type="text"
@@ -47,9 +53,15 @@ export default class TodoForm extends React.Component {
           />
           <div className="buttons">
             <button type="submit" className="btn add-task-btn">
-              Add 
+              Add
             </button>
-            <button className="btn clear-btn">Clear</button>
+            <button
+              className="btn clear-btn"
+              onClick={(event) => this.onButtonClear(event)}
+            >
+              Clear
+            </button>
+            {this.props.todosLength > 0 && <ResetButton onButtonClear={this.onButtonClear}/>}
           </div>
         </form>
       </div>

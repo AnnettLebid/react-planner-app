@@ -119,6 +119,19 @@ body {
   cursor: pointer;
 }
 
+.reset-btn {
+  width: 100px;
+  height: 35px;
+  background-color: #388087;
+  color: #ccc;
+  border: none;
+  font-size: 16px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  outline: none;
+  cursor: pointer;
+}
+
 .add-task-btn:hover,
 .clear-btn:hover {
   background-color: #46959c;

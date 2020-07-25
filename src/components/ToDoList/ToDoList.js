@@ -2,7 +2,6 @@ import React from "react";
 
 function ToDoList(props) {
   const { todos } = props;
-  console.log(todos)
 
   function handleOnDelete(todo) {  
     props.handleOnDelete(todo);
