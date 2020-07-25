@@ -15,6 +15,7 @@ export default class App extends React.Component {
     this.toggleDone = this.toggleDone.bind(this);
     this.toggleFavourite = this.toggleFavourite.bind(this);
     this.handleOnDelete = this.handleOnDelete.bind(this);
+    this.editTodo = this.editTodo.bind(this);
     this.onButtonClear = this.onButtonClear.bind(this);
   }
 
@@ -58,47 +59,54 @@ export default class App extends React.Component {
     this.setState({ todos, todo: "" });
   }
 
-  onButtonClear(){
+  onButtonClear() {
     this.setState({ todos: [] });
   }
 
-  // editToDo(id){
-  //   const todo = this.state.todos.filter((todo) => {
-  //     if (todo.id === id) {
-  //       // toggle from false/true
-  //       todo.edit = !todo.edit;
-  //     }
-  //     return todo;
-  //   });
-  //   this.setState({ todos: todo });
-  // };
+  editTodo(todo) {
+    const index = todo.id;
+    const todos = this.state.todos.map((todo) => {
+      if (todo.id === index) {
+        todo.isEditing = !todo.isEditing;
+      }
+      return todo;
+    });
+    this.setState({ todos, todo: "" });
+  }
 
-  render() {    
+  render() {
+    const todoList = this.state.todos
+      .filter((todo) => !todo.isDone)
+      .sort((a, b) => b.favourite - a.favourite);
+
     const doneList = this.state.todos.filter((todo) => todo.isDone);
-    const todoList = this.state.todos.filter((todo) => !todo.isDone);
-    const todosLength = this.state.todos.length;   
+    const todosLength = this.state.todos.length;
+    console.log(this.state.todos);
 
     return (
       <div className="container">
         <div className="app-wrapper">
           <Header name="Todo App" />
           <ToDoForm
-            todosLength = {todosLength}
+            todosLength={todosLength}
             onNewTodo={(newTodo) => this.handleOnNewTodo(newTodo)}
-            onButtonClear={this.onButtonClear}           
+            onButtonClear={this.onButtonClear}
           />
           <Subheader name="To do" />
           <ToDoList
             todos={todoList}
-            toggleDone={this.toggleDone}
-            handleOnDelete={this.handleOnDelete}
             toggleFavourite={this.toggleFavourite}
+            editTodo={this.editTodo}
+            handleOnDelete={this.handleOnDelete}
+            toggleDone={this.toggleDone}
           />
           <Subheader name="Done" />
           <DoneList
             doneTodos={doneList}
-            toggleDone={this.toggleDone}
+            toggleFavourite={this.toggleFavourite}
+            editTodo={this.editTodo}
             handleOnDelete={this.handleOnDelete}
+            toggleDone={this.toggleDone}
           />
         </div>
       </div>

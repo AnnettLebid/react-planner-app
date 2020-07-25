@@ -25,8 +25,27 @@ todos = [
     IsDone: true,
     favourite: false,
   },
+  {
+    id: 5,
+    title: "e",
+    IsDone: true,
+    favourite: false,
+  },
+  {
+    id: 6,
+    title: "f",
+    IsDone: true,
+    favourite: false,
+  },
+  {
+    id: 7,
+    title: "g",
+    IsDone: true,
+    favourite: false,
+  },
+
 ];
-const doneList = todos.filter((todo) => todo.isDone);
+const doneList = todos.filter((todo) => todo.isDone)
 const todoList = todos.filter((todo) => !todo.isDone);
-console.log(doneList);
-console.log(todoList)
+console.log("donelist", doneList);
+// console.log(todoList)

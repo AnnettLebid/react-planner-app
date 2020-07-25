@@ -29,8 +29,7 @@ body {
 .app-wrapper {
   background-color: #292f38;
   width: 25%;
-  min-width: 450px;
-  /* height: 500px; */
+  min-width: 450px; 
   padding: 30px;
   box-sizing: border-box;
   border-radius: 5px;
@@ -49,8 +48,7 @@ body {
 .task-input {
   width: 100%;
   min-width: 250px;
-  padding: 15px 10px 10px 20px;
-  /* font-family: "Josefin Sans", serif; */
+  padding: 15px 10px 10px 20px; 
   font-size: 15px;
   color: #ccc;
   background-color: #1d222b;
@@ -89,14 +87,14 @@ body {
   outline: none;
 }
 
-.btn-edit i {
+.btn-style i {
   font-size: 16px;
   color: #bbb;
   margin-right: 20px;
 }
 
 .btn-delete:focus,
-.btn-edit:focus {
+.btn-style:focus {
   outline: none;
 }
 
@@ -132,6 +130,11 @@ body {
   cursor: pointer;
 }
 
+.red {
+  color: red !important;
+}
+
+.reset-btn:hover,
 .add-task-btn:hover,
 .clear-btn:hover {
   background-color: #46959c;
@@ -157,8 +160,7 @@ body {
 .list-item {
   display: flex;
   justify-content: space-between;
-  margin: 20px 0;
-  padding-bottom: 5px;
+  margin: 5px 0;  
   list-style-type: none;
   font-size: 25px;
 }

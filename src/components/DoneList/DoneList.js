@@ -3,9 +3,13 @@ import React from "react";
 function DoneList(props) {
   const { doneTodos } = props;
 
-  // function moveToTodoList(todo, index) {
-  //   props.moveToTodoList(todo, index);
-  // }
+  function toggleFavourite(todo) {
+    props.toggleFavourite(todo);
+  }
+  
+  function editTodo(todo) {
+    props.editTodo(todo);
+  }
 
   function handleOnDelete(todo) {
     props.handleOnDelete(todo);
@@ -21,13 +25,18 @@ function DoneList(props) {
         <li key={todo.id} className="list-item">
           {todo.text}
           <div>
-            <button className="btn-edit task-btn">
-              <i className="far fa-heart"></i>
+            <button name = "favourite" 
+            className="btn-style task-btn"
+            onClick={() => toggleFavourite(todo)}>
+            <i className={todo.favourite ? "far fa-heart red" : "far fa-heart"}></i>            
             </button>
-            <button className="btn-edit task-btn">
+            <button name = "edit" 
+            className="btn-style task-btn"
+            onClick={() => {
+              editTodo(todo)}}>
               <i className="fa fa-pencil-square-o"></i>
             </button>
-            <button
+            <button name = "delete"
               className="btn-delete task-btn"
               onClick={() => {
                 handleOnDelete(todo);
@@ -35,10 +44,9 @@ function DoneList(props) {
             >
               <i className="fas fa-trash-alt"></i>
             </button>
-            <button
-              className="btn-edit task-btn"
-              onClick={() => toggleDone(todo)}
-            >
+            <button name = "toggleDone"
+              className="btn-style task-btn"
+              onClick={() => toggleDone(todo)}>
               <i className="fa fa-check-square" aria-hidden="true"></i>
             </button>
           </div>

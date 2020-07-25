@@ -10,7 +10,7 @@ export default class TodoForm extends React.Component {
         id: "",
         finished: false,
         favourite: false,
-        editing: false,
+        isEditing: false,
       },
     };
   }
@@ -41,8 +41,7 @@ export default class TodoForm extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={(event) => this.handleOnSubmit(event)} className="form">
-          <p>{this.props.todosLength}</p>
+        <form onSubmit={(event) => this.handleOnSubmit(event)} className="form">          
           <input
             label="What are you planning to do?"
             type="text"
