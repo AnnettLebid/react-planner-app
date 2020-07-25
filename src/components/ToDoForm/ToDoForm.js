@@ -21,7 +21,7 @@ export default class TodoForm extends React.Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-    if (this.state.text.length === 0) {
+    if (!this.state.text) {
       return;
     }
     this.props.onNewTodo({
@@ -39,11 +39,11 @@ export default class TodoForm extends React.Component {
   }
 
   render() {
+    const { todosLength } = this.props;
     return (
       <div>
-        <form onSubmit={(event) => this.handleOnSubmit(event)} className="form">          
+        <form onSubmit={(event) => this.handleOnSubmit(event)} className="form">
           <input
-            label="What are you planning to do?"
             type="text"
             value={this.state.value}
             onChange={(event) => this.handleChange(event)}
@@ -54,13 +54,12 @@ export default class TodoForm extends React.Component {
             <button type="submit" className="btn add-task-btn">
               Add
             </button>
-            <button
-              className="btn clear-btn"
-              onClick={(event) => this.onButtonClear(event)}
-            >
-              Clear
-            </button>
-            {this.props.todosLength > 0 && <ResetButton onButtonClear={(event) => this.onButtonClear(event)}/>}
+           
+            {todosLength > 0 && (
+              <ResetButton
+                onButtonClear={(event) => this.onButtonClear(event)}
+              />
+            )}
           </div>
         </form>
       </div>

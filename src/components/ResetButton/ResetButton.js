@@ -1,12 +1,12 @@
 import React from 'react'
 
-const ResetButton = () => {
+const ResetButton = (props) => {
 
     return (
         <div>
             <button
               className="btn reset-btn"
-              onClick={(event) => this.onButtonClear(event)}
+              onClick={(event) => props.onButtonClear(event)}
             >
               Reset
             </button>            
