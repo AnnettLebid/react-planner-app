@@ -11,6 +11,8 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       todos: [],
+      // item:"",
+      // editItem: false
     };
     this.toggleDone = this.toggleDone.bind(this);
     this.toggleFavourite = this.toggleFavourite.bind(this);
@@ -65,6 +67,9 @@ export default class App extends React.Component {
 
   editTodo(todo) {
     const index = todo.id;
+    const filteredTodos = this.state.todos.filter((todo) => todo.id !== index);
+    const selectedTodo = this.state.todos.find((todo) => todo.id === index);
+     
     const todos = this.state.todos.map((todo) => {
       if (todo.id === index) {
         todo.isEditing = !todo.isEditing;
@@ -72,22 +77,31 @@ export default class App extends React.Component {
       return todo;
     });
     this.setState({ todos, todo: "" });
+    console.log(selectedTodo); 
+  }
+
+  handleChange(event){
+    this.setState({
+      item: event.target.value
+    })
   }
 
   render() {
-    const todoList = this.state.todos
+    const { todos } = this.state;
+
+    const todoList = todos
       .filter((todo) => !todo.isDone)
       .sort((a, b) => b.favourite - a.favourite);
-
-    const doneList = this.state.todos.filter((todo) => todo.isDone);
-    const todosLength = this.state.todos.length;
-    console.log(this.state.todos);
+    const doneList = todos.filter((todo) => todo.isDone);
+    const todosLength = todos.length;   
 
     return (
       <div className="container">
         <div className="app-wrapper">
           <Header name="Todo App" />
           <ToDoForm
+            item = {this.state.item}
+            handleChange = {this.handleChange}
             todosLength={todosLength}
             onNewTodo={(newTodo) => this.handleOnNewTodo(newTodo)}
             onButtonClear={this.onButtonClear}

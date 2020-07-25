@@ -29,7 +29,7 @@ body {
 .app-wrapper {
   background-color: #292f38;
   width: 25%;
-  min-width: 450px; 
+  min-width: 450px;
   padding: 30px;
   box-sizing: border-box;
   border-radius: 5px;
@@ -48,7 +48,7 @@ body {
 .task-input {
   width: 100%;
   min-width: 250px;
-  padding: 15px 10px 10px 20px; 
+  padding: 15px 10px 10px 20px;
   font-size: 15px;
   color: #ccc;
   background-color: #1d222b;
@@ -144,7 +144,7 @@ body {
 
 .list {
   width: 90%;
-  margin: auto;
+  margin: auto; 
   max-height: 300px;
   overflow: hidden;
   overflow-y: auto;
@@ -157,10 +157,22 @@ body {
   margin: 20px;
 }
 
+.list-input {
+  font-size: 25px;
+  background-color: transparent;
+  color: white;
+  border: 0;
+  width: 220px;
+}
+
+.list-input:focus{
+  outline:none;
+}
+
 .list-item {
   display: flex;
   justify-content: space-between;
-  margin: 5px 0;  
+  margin: 5px 0;
   list-style-type: none;
   font-size: 25px;
 }

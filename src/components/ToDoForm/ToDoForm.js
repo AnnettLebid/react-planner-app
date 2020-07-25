@@ -60,7 +60,7 @@ export default class TodoForm extends React.Component {
             >
               Clear
             </button>
-            {this.props.todosLength > 0 && <ResetButton onButtonClear={this.onButtonClear}/>}
+            {this.props.todosLength > 0 && <ResetButton onButtonClear={(event) => this.onButtonClear(event)}/>}
           </div>
         </form>
       </div>

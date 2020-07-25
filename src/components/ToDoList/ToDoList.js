@@ -23,8 +23,11 @@ function ToDoList(props) {
     <ul className="list">
       {todos.map((todo) => (
         <li key={todo.id} className="list-item">
-          {todo.text}
-          <div>
+           <input type="text" className = "list-input" id={todo.id} value={todo.text} onChange={(e)=>{
+             props.setUpdate(e.target.value,todo.id)}}/>
+          {/* {todo.text} */}
+
+          <div className = "list-item">
             <button
               name="favourite"
               className="btn-style task-btn"
@@ -37,7 +40,7 @@ function ToDoList(props) {
               className="btn-style task-btn"
               onClick={() => {
                 editTodo(todo);
-              }}
+              }}            
             >
               <i className="fa fa-pencil-square-o"></i>
             </button>
