@@ -131,7 +131,7 @@ body {
 }
 
 .red {
-  color: red !important;
+  color: rgb(255, 0, 0) !important;
 }
 
 .reset-btn:hover,
@@ -144,7 +144,7 @@ body {
 
 .list {
   width: 90%;
-  margin: auto; 
+  margin: auto;
   max-height: 300px;
   overflow: hidden;
   overflow-y: auto;
@@ -165,8 +165,8 @@ body {
   width: 220px;
 }
 
-.list-input:focus{
-  outline:none;
+.list-input:focus {
+  outline: none;
 }
 
 .list-item {
@@ -179,4 +179,19 @@ body {
 
 .todolist {
   height: 50%
+}
+
+.fa-heart:hover {
+  transform: scale(1.1);
+  color: rgb(255, 0, 0);
+}
+
+.fa-check-square:hover {
+  transform: scale(1.1);
+  color: rgb(50, 205, 50);
+}
+
+.fa-trash-alt:hover {
+  transform: scale(1.1);
+  color: rgb(255, 0, 0);
 }
