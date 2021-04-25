@@ -6,10 +6,6 @@ function DoneList(props) {
   function toggleFavourite(todo) {
     props.toggleFavourite(todo);
   }
-  
-  function editTodo(todo) {
-    props.editTodo(todo);
-  }
 
   function handleOnDelete(todo) {
     props.handleOnDelete(todo);
@@ -37,12 +33,6 @@ function DoneList(props) {
             className="btn-style task-btn"
             onClick={() => toggleFavourite(todo)}>
             <i className={todo.favourite ? "far fa-heart red" : "far fa-heart"}></i>            
-            </button>
-            <button name = "edit" 
-            className="btn-style task-btn"
-            onClick={() => {
-              editTodo(todo)}}>
-              <i className="fa fa-pencil-square-o"></i>
             </button>
             <button name = "delete"
               className="btn-delete task-btn"
