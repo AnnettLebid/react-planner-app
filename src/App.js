@@ -10,14 +10,11 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [],
-      // item:"",
-      // editItem: false
+      todos: []
     };
     this.toggleDone = this.toggleDone.bind(this);
     this.toggleFavourite = this.toggleFavourite.bind(this);
-    this.handleOnDelete = this.handleOnDelete.bind(this);
-    this.editTodo = this.editTodo.bind(this);
+    this.handleOnDelete = this.handleOnDelete.bind(this);   
     this.onButtonClear = this.onButtonClear.bind(this);
   }
 
@@ -65,20 +62,6 @@ export default class App extends React.Component {
     this.setState({ todos: [] });
   }
 
-  editTodo(todo) {
-    const index = todo.id;
-    const filteredTodos = this.state.todos.filter((todo) => todo.id !== index);
-    const selectedTodo = this.state.todos.find((todo) => todo.id === index);
-     
-    const todos = this.state.todos.map((todo) => {
-      if (todo.id === index) {
-        todo.isEditing = !todo.isEditing;
-      }
-      return todo;
-    });
-    this.setState({ todos, todo: "" });    
-  }
-
   handleChange(event){
     this.setState({
       item: event.target.value
@@ -108,16 +91,14 @@ export default class App extends React.Component {
           <Subheader name="To do" />
           <ToDoList
             todos={todoList}
-            toggleFavourite={this.toggleFavourite}
-            editTodo={this.editTodo}
+            toggleFavourite={this.toggleFavourite}            
             handleOnDelete={this.handleOnDelete}
             toggleDone={this.toggleDone}
           />
           <Subheader name="Done" />
           <DoneList
             doneTodos={doneList}
-            toggleFavourite={this.toggleFavourite}
-            editTodo={this.editTodo}
+            toggleFavourite={this.toggleFavourite}            
             handleOnDelete={this.handleOnDelete}
             toggleDone={this.toggleDone}
           />
